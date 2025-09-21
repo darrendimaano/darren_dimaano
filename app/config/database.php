@@ -58,7 +58,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 */
 
 $database['main'] = array(
-    'driver'	=> 'mylSAM',
+    'driver'	=> 'mysql',
     'hostname'	=> 'sql.freedb.tech',
     'port'		=> '3306',
     'username'	=> 'freedb_darrendimaano',
