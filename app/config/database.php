@@ -64,7 +64,7 @@ $database['main'] = array(
     'username'	=> 'freedb_darrendimaano',
     'password'	=> '7Jf!ChDKn@sexf9',
     'database'	=> 'freedb_darrendimaano',
-    'charset'	=> 'utf8mb3',
+    'charset'	=> 'utf8mb4',
     'dbprefix'	=> '',
     // Optional for SQLite
     'path'      => ''
