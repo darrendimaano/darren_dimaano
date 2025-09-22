@@ -48,9 +48,9 @@
         <i class="fa-solid fa-user-astronaut text-white text-3xl"></i>
       </div>
       <h2 class="text-2xl font-extrabold text-cyan-400 mt-3 tracking-widest drop-shadow-[0_0_6px_#00e0ff]">
-        Create Your Student Account
+        Create Student Account
       </h2>
-      <p class="text-gray-400 text-sm tracking-wide mt-1">Step into the future of learning 🚀</p>
+      <p class="text-gray-400 text-sm tracking-wide mt-1">Step into the future of learning </p>
     </div>
 
     <!-- Form -->
