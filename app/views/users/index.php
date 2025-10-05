@@ -66,6 +66,10 @@
       <h1 class="text-cyan-200 font-title text-2xl flex items-center gap-2">
         <i class="fa-solid fa-user-astronaut"></i> Student Directory
       </h1>
+      <!-- Logout sa kanan -->
+      <a href="<?=site_url('auth/logout');?>" class="logout-btn flex items-center gap-2">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+      </a>
     </div>
   </nav>
 
@@ -74,10 +78,10 @@
     <div class="futuristic-card shadow-xl rounded-xl p-6">
 
       <!-- Top Actions -->
-      <div class="flex justify-between items-center mb-6">
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6">
         
         <!-- Search Bar -->
-        <form method="get" action="<?=site_url('/users')?>" class="mb-4 flex justify-end">
+        <form method="get" action="<?=site_url('/users')?>" class="flex">
           <input 
             type="text" 
             name="q" 
@@ -110,21 +114,24 @@
           </thead>
           <tbody class="text-gray-200 text-sm">
             <?php if(!empty($users)): ?>
-              <?php foreach(html_escape($users) as $user): ?>
+              <?php foreach($users as $user): ?>
                 <tr class="hover:bg-purple-700/30 transition duration-300">
-                  <td class="py-3 px-4 font-medium"><?=($user['id']);?></td>
-                  <td class="py-3 px-4"><?=($user['last_name']);?></td>
-                  <td class="py-3 px-4"><?=($user['first_name']);?></td>
-                  <td class="py-3 px-4"><?=($user['email']);?></td>
-                  <td class="py-3 px-4 flex justify-center gap-3">
-                    <a href="<?=site_url('users/update/'.$user['id']);?>"
-                       class="btn-hover bg-gradient-to-r from-green-600 to-cyan-600 text-white px-3 py-1 rounded-lg shadow flex items-center gap-1">
-                      <i class="fa-solid fa-pen-to-square"></i> Update
-                    </a>
-                    <a href="<?=site_url('users/delete/'.$user['id']);?>"
-                       class="btn-hover bg-gradient-to-r from-red-700 to-purple-700 text-white px-3 py-1 rounded-lg shadow flex items-center gap-1">
-                      <i class="fa-solid fa-trash"></i> Delete
-                    </a>
+                  <td class="py-3 px-4 font-medium"><?=html_escape($user['id']);?></td>
+                  <td class="py-3 px-4"><?=html_escape($user['last_name']);?></td>
+                  <td class="py-3 px-4"><?=html_escape($user['first_name']);?></td>
+                  <td class="py-3 px-4"><?=html_escape($user['email']);?></td>
+                  <td class="py-3 px-4">
+                    <div class="flex justify-center gap-3">
+                      <a href="<?=site_url('users/update/'.$user['id']);?>"
+                         class="btn-hover bg-gradient-to-r from-green-600 to-cyan-600 text-white px-3 py-1 rounded-lg shadow flex items-center gap-1">
+                        <i class="fa-solid fa-pen-to-square"></i> Update
+                      </a>
+                      <a href="<?=site_url('users/delete/'.$user['id']);?>"
+                         class="btn-hover bg-gradient-to-r from-red-700 to-purple-700 text-white px-3 py-1 rounded-lg shadow flex items-center gap-1"
+                         onclick="return confirm('Are you sure you want to delete this student?');">
+                        <i class="fa-solid fa-trash"></i> Delete
+                      </a>
+                    </div>
                   </td>
                 </tr>
               <?php endforeach; ?>
@@ -135,8 +142,8 @@
         </table>
       </div>
 
-      <!-- Pagination + Logout -->
-      <div class="mt-4 flex justify-between items-center">
+      <!-- Pagination -->
+      <div class="mt-6 flex justify-center">
         <div class="pagination flex space-x-2">
           <?php
             if (!empty($page)) {
@@ -152,11 +159,6 @@
             }
           ?>
         </div>
-
-        <!-- Logout Button -->
-        <a href="<?=site_url('auth/logout');?>" class="logout-btn flex items-center gap-2">
-          <i class="fa-solid fa-right-from-bracket"></i> Logout
-        </a>
       </div>
 
     </div>
