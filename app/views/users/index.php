@@ -139,7 +139,7 @@
 <div class="mt-6 flex justify-between items-center">
   
   <!-- Pagination -->
-  <div class="flex items-center space-x-4">
+  <div class="mt-6 flex justify-between items-center">
     <?php if (!empty($page)): ?>
       <?php 
         // Convert default CodeIgniter pagination
