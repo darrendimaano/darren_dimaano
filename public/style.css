@@ -74,7 +74,6 @@ h1, h2 {
   padding: 14px;
   font-size: 18px;
   color: #e0e0e0;
-  text-align: center;
 }
 .guild-table th {
   background: rgba(0,255,247,0.1);
@@ -84,13 +83,6 @@ h1, h2 {
 }
 .guild-table tr:nth-child(even) {
   background: rgba(0,255,247,0.05);
-}
-
-/* Action column - make buttons side by side */
-.guild-table td:last-child {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
 }
 
 /* ====== BUTTONS ====== */
@@ -170,7 +162,7 @@ h1, h2 {
 .header-row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* fixed: hiwalay search at add new */
+  justify-content: space-between;
   align-items: center;
   width: 85%;
   margin: 0 auto 20px;
@@ -191,56 +183,36 @@ h1, h2 {
   padding: 8px 20px;
 }
 
-/* ====== PAGINATION ====== */
-.pagination {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 25px 0;
-}
-.pagination a,
-.pagination span {
+/* ====== PAGINATION (INDEX SPECIFIC) ====== */
+.hp-page {
   display: inline-block;
   padding: 10px 20px;
   border-radius: 8px;
   border: 2px solid #00fff7;
   background: rgba(0,255,247,0.1);
-  color: #00fff7;
+  color: #00fff7 !important;
   text-decoration: none;
   font-weight: bold;
   letter-spacing: 1px;
   transition: 0.3s;
 }
-.pagination a:hover {
+
+.hp-page:hover {
   background: #00e0ff;
-  color: #000;
+  color: #000 !important;
   box-shadow: 0 0 15px #00fff7;
 }
-.pagination .active,
-.pagination .hp-current {
-  background: linear-gradient(135deg, #00ff99, #00e0ff);
-  border-color: #00fff7;
-  color: #000;
-}
 
-/* ====== LOGOUT BUTTON ====== */
-.logout-btn {
+.hp-current {
   display: inline-block;
-  margin-top: 20px;
   padding: 10px 20px;
-  background: linear-gradient(135deg, #00c851, #007e33);
-  color: #fff;
-  border-radius: 50px;
+  border-radius: 8px;
+  border: 2px solid #00fff7;
+  background: linear-gradient(135deg, #00ff99, #00e0ff);
+  color: #000 !important;
   font-weight: bold;
-  text-decoration: none;
-  transition: 0.3s;
-  box-shadow: 0 0 10px #00ff99, 0 0 20px #00cc66;
-}
-.logout-btn:hover {
-  transform: scale(1.08);
-  background: linear-gradient(135deg, #00e676, #00c851);
-  box-shadow: 0 0 20px #00ff99, 0 0 40px #00cc66;
+  letter-spacing: 1px;
+  box-shadow: 0 0 20px #00fff7;
 }
 
 /* ====== RESPONSIVE ====== */
@@ -252,12 +224,33 @@ h1, h2 {
   }
   h1 { font-size: 36px; }
   .form-input { width: 90%; }
+}
 
-  .header-row {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .header-row .btn {
-    width: 100%;
-  }
+/* ====== LOGOUT BUTTON ====== */
+.logout-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #ff0066, #ff3333);
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 15px #ff0033, 0 0 30px #ff1a4d;
+  position: relative;
+  z-index: 1;
+}
+
+.logout-btn:hover {
+  background: linear-gradient(135deg, #ff3333, #ff0066);
+  box-shadow: 0 0 25px #ff1a4d, 0 0 50px #ff0033;
+  transform: scale(1.1);
+}
+
+.logout-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 15px #ff1a4d inset;
 }
