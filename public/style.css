@@ -161,26 +161,32 @@ h1, h2 {
 /* ====== HEADER ROW ====== */
 .header-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;       /* horizontal layout */
   justify-content: space-between;
   align-items: center;
   width: 85%;
   margin: 0 auto 20px;
-  gap: 10px;
+  gap: 20px;                 /* space between search and button */
+  flex-wrap: nowrap;         /* prevent vertical stacking */
 }
+
 .search {
+  flex: 1;                   /* make input expand */
+  min-width: 250px;
   padding: 10px 14px;
   border-radius: 8px;
   border: 2px solid #00fff7;
   font-size: 16px;
   background: rgba(0,255,247,0.1);
   color: #e0e0e0;
-  height: 38px;
+  height: 42px;
   box-sizing: border-box;
 }
+
 .header-row .btn {
-  height: 38px;
+  height: 42px;
   padding: 8px 20px;
+  flex-shrink: 0;            /* prevent button from shrinking */
 }
 
 /* ====== PAGINATION (INDEX SPECIFIC) ====== */
@@ -224,6 +230,13 @@ h1, h2 {
   }
   h1 { font-size: 36px; }
   .form-input { width: 90%; }
+  .header-row {
+    flex-direction: column;   /* stacked on small screens */
+    align-items: stretch;
+  }
+  .search {
+    width: 100%;
+  }
 }
 
 /* ====== LOGOUT BUTTON ====== */
