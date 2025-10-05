@@ -183,36 +183,36 @@ h1, h2 {
   padding: 8px 20px;
 }
 
-/* ====== PAGINATION ====== */
-.pagination {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 25px 0;
-}
-.pagination a,
-.pagination span {
+/* ====== PAGINATION (INDEX SPECIFIC) ====== */
+.hp-page {
   display: inline-block;
   padding: 10px 20px;
   border-radius: 8px;
   border: 2px solid #00fff7;
   background: rgba(0,255,247,0.1);
-  color: #00fff7;
+  color: #00fff7 !important;
   text-decoration: none;
   font-weight: bold;
   letter-spacing: 1px;
   transition: 0.3s;
 }
-.pagination a:hover {
+
+.hp-page:hover {
   background: #00e0ff;
-  color: #000;
+  color: #000 !important;
   box-shadow: 0 0 15px #00fff7;
 }
-.pagination .active {
+
+.hp-current {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 2px solid #00fff7;
   background: linear-gradient(135deg, #00ff99, #00e0ff);
-  border-color: #00fff7;
-  color: #000;
+  color: #000 !important;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 0 20px #00fff7;
 }
 
 /* ====== RESPONSIVE ====== */
