@@ -74,16 +74,16 @@
     <div class="futuristic-card shadow-xl rounded-xl p-6">
 
       <!-- Top Actions -->
-      <div class="flex justify-between items-center mb-6">
+      <div class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
         
         <!-- Search Bar -->
-        <form method="get" action="<?=site_url('/users')?>" class="mb-4 flex justify-end">
+        <form method="get" action="<?=site_url('/users')?>" class="flex w-full md:w-auto">
           <input 
             type="text" 
             name="q" 
             value="<?=html_escape($_GET['q'] ?? '')?>" 
             placeholder="Search student..." 
-            class="px-4 py-2 border border-cyan-400 rounded-l-lg bg-black/40 text-cyan-200 focus:outline-none focus:ring-2 focus:ring-purple-500 w-64">
+            class="px-4 py-2 border border-cyan-400 rounded-l-lg bg-black/40 text-cyan-200 focus:outline-none focus:ring-2 focus:ring-purple-500 w-full md:w-64">
           <button type="submit" class="bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 text-white px-4 py-2 rounded-r-lg shadow transition-all duration-300">
             <i class="fa fa-search"></i>
           </button>
@@ -135,43 +135,34 @@
         </table>
       </div>
 
-  <!-- Pagination + Logout -->
-<div class="mt-6 flex justify-between items-center">
-  
-  <!-- Pagination -->
-  <div class="mt-6 flex justify-between items-center">
-    <?php if (!empty($page)): ?>
-      <?php 
-        // Convert default CodeIgniter pagination
-        $customPage = str_replace(
-          ['<a ', '<strong>', '</strong>'],
-          [
-            '<a class="hp-page px-3 py-1"',
-            '<span class="hp-current px-3 py-1">',
-            '</span>'
-          ],
-          $page
-        );
+      <!-- Pagination + Logout -->
+      <div class="mt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+        
+        <!-- Pagination -->
+        <div class="pagination flex flex-wrap justify-center gap-4">
+          <?php
+            if (!empty($page)) {
+              echo str_replace(
+                ['<a ', '<strong>', '</strong>'],
+                [
+                  '<a class="hp-page"',
+                  '<span class="hp-current">',
+                  '</span>'
+                ],
+                $page
+              );
+            }
+          ?>
+        </div>
 
-        // Extra: Ensure "First", "Prev", "Next", "Last" are properly spaced
-        $customPage = str_replace(
-          ['First', 'Prev', 'Next', 'Last'],
-          [
-            '<span class="hp-page">First</span>',
-            '<span class="hp-page">Prev</span>',
-            '<span class="hp-page">Next</span>',
-            '<span class="hp-page">Last</span>'
-          ],
-          $customPage
-        );
+        <!-- Logout Button -->
+        <a href="<?=site_url('auth/logout');?>" class="logout-btn flex items-center gap-2">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </a>
+      </div>
 
-        echo '<div class="flex items-center gap-6">'.$customPage.'</div>';
-      ?>
-    <?php endif; ?>
+    </div>
   </div>
 
-  <!-- Logout Button -->
-  <a href="<?=site_url('auth/logout');?>" class="logout-btn flex items-center gap-2">
-    <i class="fa-solid fa-right-from-bracket"></i> Logout
-  </a>
-</div>
+</body>
+</html>
