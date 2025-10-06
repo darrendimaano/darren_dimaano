@@ -137,6 +137,15 @@
 
       <!-- Pagination + Logout -->
       <div class="mt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+
+      <div class="hp-pagination">
+  <a href="#" class="hp-page">1</a>
+  <a href="#" class="hp-page">2</a>
+  <span class="hp-current">3</span>
+  <a href="#" class="hp-page">4</a>
+  <a href="#" class="hp-page">5</a>
+</div>
+
         
         <!-- Pagination -->
         <div class="pagination flex flex-wrap justify-center gap-4">
