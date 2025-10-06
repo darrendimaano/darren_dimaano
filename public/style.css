@@ -221,12 +221,6 @@ h1, h2 {
   box-shadow: 0 0 20px #00fff7;
 }
 
-/* ====== PAGINATION WRAPPER ====== */
-.hp-pagination {
-  text-align: center;   /* Center horizontally */
-  margin-top: 20px;
-}
-
 /* ====== RESPONSIVE ====== */
 @media (max-width: 768px) {
   .description-box,
